@@ -18,8 +18,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -168,7 +172,21 @@ public class SignUpPage extends AppCompatActivity {
 
                                     } else {
                                         // If sign in fails, display a message to the user.
-                                        Toast.makeText(getApplicationContext(), "Authentication failed", Toast.LENGTH_SHORT).show();
+                                        String errorMessage;
+                                        try {
+                                            throw task.getException();
+                                        } catch (FirebaseAuthWeakPasswordException e) {
+                                            errorMessage = "Weak password.";
+                                        } catch (FirebaseAuthInvalidCredentialsException e) {
+                                            errorMessage = "Invalid email format.";
+                                        } catch (FirebaseAuthUserCollisionException e) {
+                                            errorMessage = "This email is already in use.";
+                                        } catch (FirebaseNetworkException e) {
+                                            errorMessage = "Network error.";
+                                        } catch (Exception e) {
+                                            errorMessage = "Authentication failed.";
+                                        }
+                                        Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
@@ -217,8 +235,22 @@ public class SignUpPage extends AppCompatActivity {
                                                     });
 
                                         } else {
-                                            // If sign in fails, display a message to the user.
-                                            Toast.makeText(getApplicationContext(), "Authentication failed", Toast.LENGTH_SHORT).show();
+                                            /// If sign in fails, display a message to the user.
+                                            String errorMessage;
+                                            try {
+                                                throw task.getException();
+                                            } catch (FirebaseAuthWeakPasswordException e) {
+                                                errorMessage = "Weak password.";
+                                            } catch (FirebaseAuthInvalidCredentialsException e) {
+                                                errorMessage = "Invalid email format.";
+                                            } catch (FirebaseAuthUserCollisionException e) {
+                                                errorMessage = "This email is already in use.";
+                                            } catch (FirebaseNetworkException e) {
+                                                errorMessage = "Network error.";
+                                            } catch (Exception e) {
+                                                errorMessage = "Authentication failed.";
+                                            }
+                                            Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });
