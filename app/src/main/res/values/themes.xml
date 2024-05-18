@@ -1,0 +1,42 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.BOSSM3" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="colorPrimary">@color/primary</item>
+        <item name="fontFamily">@font/quicksand_medium</item>
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="dropDownBackgroundTint">@color/white</item>
+
+
+        <item name="android:textColor">@color/black</item>
+        <item name="colorAccent">@color/primary</item>
+
+
+    </style>
+
+    <style name="Base.Theme.BOSSMC" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="colorPrimary">@color/primary</item>
+        <item name="fontFamily">@font/quicksand_medium</item>
+        <item name="android:windowBackground">@color/bg</item>
+
+
+    </style>
+
+
+
+    <style name="Theme.BOSS" parent="Base.Theme.BOSSM3" />
+
+    <style name="Theme.PrimaryButton" parent="Base.Theme.BOSSMC" />
+
+    <style name="Theme.AlternativeButton" parent="Base.Theme.BOSSMC" >
+        <item name="colorPrimary">@color/bg</item>
+        <item name="colorOnPrimary">@color/primary</item>
+
+    </style>
+
+</resources>

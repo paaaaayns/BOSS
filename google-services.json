@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "531481033319",
+    "project_id": "diamond-express-041124",
+    "storage_bucket": "diamond-express-041124.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531481033319:android:dddbd1fc0800f87e6ef2c2",
+        "android_client_info": {
+          "package_name": "com.example.diamondexpress"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvKrGpMP4Oe1mWW0x4G2FE-ketaHtaSPE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
